@@ -110,11 +110,7 @@ async function buildHtml() {
   readableStream.on("end", async () => {
     const files = await readdir(dirComponents, { withFileTypes: true });
     files
-      .filter(
-        (file) =>
-          file.isFile() &&
-          path.extname(path.join(dirStyle, file.name)) === ".html"
-      )
+      .filter((file) => file.isFile() && path.extname(file.name) === ".html")
       .forEach((file) => {
         const lastDote = file.name.lastIndexOf(".");
         const fileName = file.name.slice(0, lastDote);
