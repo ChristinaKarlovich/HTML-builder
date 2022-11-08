@@ -11,7 +11,7 @@ const output = fs.createWriteStream(textFile);
 
 function writeData(data) {
   let text = data.toString();
-  text.slice(0, text.length - 2) !== "exit" ? output.write(data) : sayGoodbye();
+  text.trim() !== "exit" ? output.write(data) : sayGoodbye();
 }
 
 function sayGoodbye() {
